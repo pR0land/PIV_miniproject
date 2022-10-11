@@ -25,7 +25,6 @@ public class CameraBehavior : MonoBehaviour
     {
         tilt -= Input.GetAxis("Mouse Y") * verticalSensitivity;
         tiltRotation.x = Mathf.Clamp(tilt, tiltMin, tiltMax);
-        Debug.Log(tiltRotation.x);
 
     }
 }
