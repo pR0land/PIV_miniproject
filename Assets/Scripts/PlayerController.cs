@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Ground"))
         {
             isGrounded = true;
-            print("can jump");
         }
     }
 }
