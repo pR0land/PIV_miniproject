@@ -7,7 +7,12 @@ public class ObstacleController : MonoBehaviour
 {
     [SerializeField]
     private float minRotSpeed = 3, maxRotSpeed = 5;
+
+    [SerializeField]
+    private float minSwipeSpeed = 3, maxSwipeSpeed = 5;
+
     private List<GameObject> rotationObstacles = new List<GameObject>();
+    private List<GameObject> sideSwipingObstacles = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +23,9 @@ public class ObstacleController : MonoBehaviour
                 case "RotationObstacle":
                     rotationObstacles.Add(child.gameObject);
                     break;
+                case "SideSwipingObstacle":
+                    sideSwipingObstacles.Add(child.gameObject);
+                    break;
             }
         }
 
@@ -25,6 +33,11 @@ public class ObstacleController : MonoBehaviour
         {
             IEnumerator rotateChild = rotate(Random.Range(minRotSpeed, maxRotSpeed), obj);
             StartCoroutine(rotateChild);
+        }
+        foreach(GameObject obj in sideSwipingObstacles)
+        {
+            IEnumerator sideSwipeChild = sideSwipe(Random.Range(minSwipeSpeed, maxSwipeSpeed), obj);
+            StartCoroutine(sideSwipeChild);
         }
             
     }
@@ -37,13 +50,21 @@ public class ObstacleController : MonoBehaviour
 
     IEnumerator rotate(float speed, GameObject obj)
     {
-        print(speed);
-        Vector3 rotationVector = new Vector3(0, Random.Range(0f, 1f), 0);
+        Vector3 rotationVector = new Vector3(0, Random.Range(-1f, 1f), 0);
         while (true)
         {
             obj.transform.Rotate(rotationVector * speed * Time.deltaTime);
             yield return null;
         }
         
+    }
+    IEnumerator sideSwipe(float speed, GameObject obj)
+    {
+
+        while (true)
+        {
+            obj.transform.Translate(new Vector3(0,0,Mathf.Sin(Time.timeSinceLevelLoad+Mathf.PI))*speed * Time.deltaTime);
+            yield return null;
+        }
     }
 }
