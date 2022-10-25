@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
             //Bevægelse
             direction.x = Input.GetAxisRaw("Horizontal");
             direction.z = Input.GetAxisRaw("Vertical");
+            direction = Vector3.Normalize(direction);
             //Hop
             if (Input.GetKeyDown(KeyCode.Space))
             {
