@@ -58,4 +58,11 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
 }
