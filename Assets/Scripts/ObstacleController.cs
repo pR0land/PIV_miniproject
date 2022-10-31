@@ -50,7 +50,8 @@ public class ObstacleController : MonoBehaviour
 
     IEnumerator rotate(float speed, GameObject obj)
     {
-        Vector3 rotationVector = new Vector3(0, Random.Range(-1f, 1f), 0);
+        int rotationDirect = Random.Range(0, 1f) > 0.5f ? 1 : -1;  
+        Vector3 rotationVector = new Vector3(0, rotationDirect, 0);
         while (true)
         {
             obj.transform.Rotate(rotationVector * speed * Time.deltaTime);
@@ -63,7 +64,14 @@ public class ObstacleController : MonoBehaviour
 
         while (true)
         {
-            obj.transform.Translate(new Vector3(0,0,Mathf.Sin(Time.timeSinceLevelLoad+Mathf.PI))*speed * Time.deltaTime);
+            if(obj.tag == "Left")
+            {
+                obj.transform.Translate(new Vector3(0, 0, Mathf.Sin(Time.timeSinceLevelLoad)) * speed * Time.deltaTime);
+            }
+            else
+            {
+                obj.transform.Translate(new Vector3(0,0,Mathf.Sin(Time.timeSinceLevelLoad+Mathf.PI))*speed * Time.deltaTime);
+            }
             yield return null;
         }
     }
