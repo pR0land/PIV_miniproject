@@ -7,7 +7,7 @@ Link to Project: https://github.com/pR0land/PIV_miniproject
 ## Overview of the project:
 The idea of the project is to simulate the Wipe Out experience from the comfort of your chair at home. Wipe Out is an obstacle course, where the goal is to navigate the course and get to the end platform without falling or getting pushed of by any of the obstacles. The player controls a capsule in 1st person and can look and move around using the mouse and keyboard.   
 The main parts of the game are:  
-* Player - a capsule with a camera attached, can be rotaded with the mouse and moved with WASD or the arrow keys. You are also able to tilt the camera up and down with the mouse to lookabove and belov you.
+* Player - a capsule with a camera attached, can be rotated with the mouse and moved with WASD or the arrow keys. You are also able to tilt the camera up and down with the mouse to look above and below you.
 * The Course - a series of platforms the player can jump to
 * The Rotating obstacle - a rotating propeller made by 3 capsules and a cylinder 
 * The Sideswipping obstacle - a big cube moving from side to side
@@ -25,7 +25,7 @@ The main parts of the game are:
   * All models and prefabs are build using unity primitives, they are made so you can easily make more and larger levels
 * Materials: 
   * Basic unitymaterials used to color the different objects in the scene
-  * One physicsmaterial used to make the bouncingball bouncy. 
+  * One physicsmaterial used to make the bouncingball bouncy using multiplication. 
 * Scenes:
   * The game consists of one scene
 * Testing:
@@ -40,7 +40,7 @@ The main parts of the game are:
 |Building prefabs (especially bouncing ball)| 1 |
 |Testing prefabs (especially bouncing ball)| 1 |
 |Programming obstacle controlls | 1.5 |
-|Testing Obstacle controlls | 0.5 |
+|Testing obstacle controlls | 0.5 |
 |Building level | 0.5 |
 |Testing level | 0.5 |
 |Trying to bugfix incorrect collision | 2 |
