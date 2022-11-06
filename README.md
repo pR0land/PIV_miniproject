@@ -9,15 +9,15 @@ The idea of the project is to simulate the Wipe Out experience from the comfort 
 The main parts of the game are:  
 * Player - a capsule with a camera attached, can be rotaded with the mouse and moved with WASD or the arrow keys. You are also able to tilt the camera up and down with the mouse to lookabove and belov you.
 * The Course - a series of platforms the player can jump to
-* The Rotating obstacle - a rotating propella made by 3 capsules and a cylinder 
+* The Rotating obstacle - a rotating propeller made by 3 capsules and a cylinder 
 * The Sideswipping obstacle - a big cube moving from side to side
 * The Bouncing Ball - a sphere with a bouncy physics material
 * The Endzone - the platform the player needs to get to, to complete the course  
 ## Project Parts:
 * Scripts:  
-  * CameraBehavior - Used to tilt the camera op and down with mouse coordinates  
-  * PlayerController - Used to rotate the player with mouse coordinates and move the playerbody using wasd or arrowkeys and space  
-  * ObstacleController - Used to controll all the obstacles with coroutines  
+  * CameraBehavior - Used to tilt the camera op and down using the mouses x-coordinates inverted. Since when you move the mouse down, the value goes down, but you want the angle of the tilt to go up. The coursor is also hidden, making the 3D experience more immersive 
+  * PlayerController - Used to rotate the player with mouse coordinates and move the playerbody using wasd or arrowkeys and space to jump when the player is grounded (colliding with a hitbox tagged ground) 
+  * ObstacleController - Used to control all the obstacles with coroutines. All the obstacles needs to be children of the obstacle controller object, it will then loop through them and start the appropriate coroutine based on object names. 
   * GameController - Used to display the score ones you reach the end zone  
   * EndGoalScript - Used to register when you hit the end zone  
   * Water - Used to register if the player hits the water and restart the game if so  
